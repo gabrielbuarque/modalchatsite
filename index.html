@@ -62,19 +62,30 @@
 <svg viewBox="0 0 24 24" id="svg10375255012"><path d="M 16.559 12.904 L 16.104 13.357 C 16.104 13.357 15.021 14.433 12.066 11.495 C 9.111 8.557 10.194 7.481 10.194 7.481 L 10.48 7.195 C 11.187 6.493 11.254 5.365 10.637 4.541 L 9.377 2.858 C 8.613 1.838 7.138 1.703 6.263 2.573 L 4.693 4.133 C 4.26 4.565 3.97 5.123 4.005 5.743 C 4.095 7.33 4.813 10.743 8.817 14.725 C 13.064 18.947 17.049 19.115 18.678 18.963 C 19.194 18.915 19.642 18.653 20.003 18.293 L 21.423 16.881 C 22.383 15.928 22.113 14.293 20.885 13.626 L 18.975 12.587 C 18.169 12.15 17.189 12.278 16.559 12.904 Z" fill="var(--token-e20b81d4-d539-406e-9652-bd00c86b32e7, rgb(255, 255, 255)) /* {&quot;name&quot;:&quot;White&quot;} */"/></svg>
 </div>
 <script>
- window.difyChatbotConfig = {
-  token: 'OyQk9sCtszJEQ4Q8',
-  baseUrl: 'http://dify.indiqai.com',
-  systemVariables: {
-    // user_id: 'YOU CAN DEFINE USER ID HERE',
-    // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
-  },
- }
+  // Função para gerar UUID v4
+  function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+  // Função para gerar um user_id aleatório
+  function generateUserId() {
+    return 'user_' + Math.random().toString(36).substr(2, 10);
+  }
+  window.difyChatbotConfig = {
+    token: 'OyQk9sCtszJEQ4Q8',
+    baseUrl: 'http://dify.indiqai.com',
+    systemVariables: {
+      user_id: generateUserId(),
+      conversation_id: generateUUID(),
+    },
+  }
 </script>
 <script
- src="http://dify.indiqai.com/embed.min.js"
- id="OyQk9sCtszJEQ4Q8"
- defer>
+  src="http://dify.indiqai.com/embed.min.js"
+  id="OyQk9sCtszJEQ4Q8"
+  defer>
 </script>
 <style>
   #dify-chatbot-bubble-button {
